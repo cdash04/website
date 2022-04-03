@@ -1,4 +1,5 @@
 {
-  "dir": "build/",
+  "spa": true,
+  "dir": "build",
   "domain": "cda.sh"
 }
