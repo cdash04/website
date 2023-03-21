@@ -5,7 +5,7 @@
 </script>
 
 <SvelteUIProvider withGlobalStyles themeObserver="dark">
-    <div class="App">
+    <div class="app">
       <div class="content">
         <HomePage />
       </div>
@@ -16,12 +16,7 @@
 </SvelteUIProvider>
 
 <style lang="scss">
-  #SVELTEUI_PROVIDER {
-    width: 100%;
-    height: 100%;
-  }
-
-  .App {
+  .app {
     height: 100%;
     display: flex;
     flex-direction: column;

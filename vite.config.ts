@@ -6,5 +6,12 @@ import sveltePreprocess from 'svelte-preprocess';
 export default defineConfig({
   plugins: [svelte({
     preprocess: sveltePreprocess(),
+    onwarn: (warning, handler) => {
+      const { code, frame } = warning;
+      if (code === "css-unused-selector")
+          return;
+
+      handler(warning);
+  },
   })],
 })
