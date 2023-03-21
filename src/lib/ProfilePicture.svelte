@@ -1,11 +1,11 @@
 <script lang="ts">
-  // your script goes here
+  const imagePath = "/images/pixel_me";
 </script>
 
 <picture class="pixel-profile-picture">
-  <source srcset="pixel_me.avif" />
-  <source srcset="pixel_me.webp" />
-  <img src="pixel_me.png" alt="pixelated cdash" />
+  <source srcset={`${imagePath}.avif`} />
+  <source srcset={`${imagePath}.webp`} />
+  <img src={`${imagePath}.png`} alt="pixelated cdash" />
 </picture>
 
 <style lang="scss">
