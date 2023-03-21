@@ -14,10 +14,6 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: './infra'
-
     permissions:
       id-token: write
       contents: read
@@ -47,10 +43,12 @@ jobs:
 
     - name: Bootstrap CDK
       id: bootstrap
+      working-directory: './infra'
       run: |
         cdk synth -c domain=cda.sh -c subdomain=www
 
     - name: Deploy to aws
       id: deploy
+      working-directory: './infra'
       run: |
         cdk deploy --require-approval never -c domain=cda.sh -c subdomain=www
