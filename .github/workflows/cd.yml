@@ -42,7 +42,7 @@ jobs:
         yarn build
 
     - name: Install CDK dependency
-      id: bootstrap
+      id: cdk-dependency
       working-directory: './infra'
       run: |
         yarn install --frozen-lockfile
