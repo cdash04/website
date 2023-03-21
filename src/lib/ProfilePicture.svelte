@@ -3,9 +3,9 @@
 </script>
 
 <picture class="pixel-profile-picture">
-  <source srcset="src/assets/pixel_me.avif" />
-  <source srcset="src/assets/pixel_me.webp" />
-  <img src="src/assets/pixel_me.png" alt="pixelated cdash" />
+  <source srcset="pixel_me.avif" />
+  <source srcset="pixel_me.webp" />
+  <img src="pixel_me.png" alt="pixelated cdash" />
 </picture>
 
 <style lang="scss">

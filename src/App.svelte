@@ -1,4 +1,5 @@
 <script lang="ts">
+  import "./App.scss"
   import { SvelteUIProvider } from "@svelteuidev/core";
   import Footer from "./lib/Footer.svelte";
   import HomePage from "./lib/HomePage.svelte";
