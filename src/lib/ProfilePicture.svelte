@@ -3,7 +3,6 @@
 </script>
 
 <picture class="pixel-profile-picture">
-  <source srcset={`${imagePath}.avif`} />
   <source srcset={`${imagePath}.webp`} />
   <img src={`${imagePath}.png`} alt="pixelated cdash" />
 </picture>
