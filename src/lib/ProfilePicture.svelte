@@ -10,15 +10,14 @@
 <style lang="scss">
   .pixel-profile-picture {
     width: 100%;
-    height: 100%;
+    max-width: 300px;
+    height: auto;
     display: block;
     border-radius: 50%;
     overflow: hidden;
     img {
       width: 100%;
-      height: 100%;
       object-fit: cover;
     }
   }
-  /* your styles go here */
 </style>

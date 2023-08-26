@@ -1,5 +1,4 @@
 <script lang="ts">
-  // your script goes here
   import { Anchor } from "@svelteuidev/core";
   import {
     Github,
@@ -52,6 +51,24 @@
 <style lang="scss">
   .links {
     display: flex;
-    gap: 1.5rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: center;
+  }
+
+  .link {
+    min-width: 3.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.625rem;
+  }
+
+  @media (max-width: 8.75rem) {
+    .link {
+      min-width: auto;
+      width: 100%;
+    }
   }
 </style>

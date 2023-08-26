@@ -22,5 +22,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 25px;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+
+    .content {
+      margin: auto 0;
+    }
+
+    @media (max-width: 760px) { 
+      flex-direction: column;
+      padding: 15px;
+    }
   }
 </style>
