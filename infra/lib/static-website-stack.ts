@@ -63,7 +63,7 @@ export class StaticWebsiteStack extends Construct {
 
     // TLS certificate
     const certificate = new acm.Certificate(this, 'SiteCertificate', {
-      domainName: `${domainName}`,
+      domainName,
     });
     new CfnOutput(this, 'Certificate', { value: certificate.certificateArn });
 
@@ -93,16 +93,16 @@ export class StaticWebsiteStack extends Construct {
     new CfnOutput(this, 'DistributionId', { value: distribution.distributionId });
 
     // Route53 alias record for the CloudFront distribution with subdomain
-    new route53.ARecord(this, 'SiteAliasRecord', {
-      recordName: siteDomain,
+    const siteRecord = new route53.ARecord(this, 'SiteAliasRecord', {
+      recordName: domainName,
       target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
       zone
     });
 
     // Route53 alias record for the CloudFront distribution without subdomain
-    new route53.ARecord(this, 'DomainAliasRecord', {
-      recordName: domainName,
-      target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
+    new route53.ARecord(this, 'RedirectSiteAliasRecord', {
+      recordName: siteDomain,
+      target: route53.RecordTarget.fromAlias(new targets.Route53RecordTarget(siteRecord)),
       zone
     });
 
