@@ -105,7 +105,7 @@ export class StaticWebsiteStack extends Construct {
     // Route53 redirect domain to subdomain
     new route53.ARecord(this, 'RedirectSiteAliasRecord', {
       recordName: domainName,
-      target: route53.RecordTarget.fromAlias(new targets.Route53RecordTarget(siteRecord)),
+      target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
       zone
     });
 
