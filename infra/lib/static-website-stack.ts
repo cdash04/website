@@ -65,6 +65,8 @@ export class StaticWebsiteStack extends Construct {
     // TLS certificate
     const certificate = new acm.Certificate(this, 'SiteCertificate', {
       domainName: certificateDomain,
+      subjectAlternativeNames: [domainName]
+      
     });
     new CfnOutput(this, 'Certificate', { value: certificate.certificateArn });
 
