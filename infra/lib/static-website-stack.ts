@@ -63,7 +63,7 @@ export class StaticWebsiteStack extends Construct {
 
     // TLS certificate
     const certificate = new acm.Certificate(this, 'SiteCertificate', {
-      domainName: siteDomain,
+      domainName: `*.${domainName}`,
     });
     new CfnOutput(this, 'Certificate', { value: certificate.certificateArn });
 
@@ -72,7 +72,7 @@ export class StaticWebsiteStack extends Construct {
     const distribution = new cloudfront.Distribution(this, 'SiteDistribution', {
       certificate: certificate,
       defaultRootObject: "index.html",
-      domainNames: [siteDomain],
+      domainNames: [siteDomain, domainName],
       minimumProtocolVersion: cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
       errorResponses:[
         {
